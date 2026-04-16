@@ -22,13 +22,13 @@ const config: HardhatUserConfig = {
     },
 
     mainnet: {
-      url: `https://rpc.ankr.com/eth`,
+      url: process.env.MAINNET_RPC_URL || `https://eth.drpc.org`,
       chainId: 1,
       accounts
     },
 
     bsc: {
-      url: `https://rpc.ankr.com/bsc`,
+      url: process.env.BSC_RPC_URL || `https://bsc-dataseed1.binance.org`,
       chainId: 56,
       accounts
     },
@@ -46,19 +46,19 @@ const config: HardhatUserConfig = {
     },
 
     optimisticEthereum: {
-      url: `https://mainnet.optimism.io`,
+      url: process.env.OPTIMISM_RPC_URL || `https://optimism.drpc.org`,
       chainId: 10,
       accounts
     },
 
     polygon: {
-      url: `https://polygon.llamarpc.com`,
+      url: process.env.POLYGON_RPC_URL || `https://polygon.drpc.org`,
       chainId: 137,
       accounts
     },
 
     avalanche: {
-      url: `https://api.avax.network/ext/bc/C/rpc`,
+      url: process.env.AVALANCHE_RPC_URL || `https://avalanche.drpc.org`,
       chainId: 43114,
       accounts
     },
@@ -272,6 +272,18 @@ const config: HardhatUserConfig = {
     rinkeby: {
       url: `https://rinkeby.infura.io/v3/${process.env.INFURA_KEY}`,
       chainId: 4,
+      accounts
+    },
+
+    baseSepolia: {
+      url: process.env.BASE_SEPOLIA_RPC_URL || 'https://sepolia.base.org',
+      chainId: 84532,
+      accounts
+    },
+
+    baseGoerli: {
+      url: process.env.BASE_GOERLI_RPC_URL || 'https://goerli.base.org',
+      chainId: 84531,
       accounts
     }
   },
